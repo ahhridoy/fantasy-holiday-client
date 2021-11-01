@@ -12,10 +12,12 @@ import Footer from "./components/shared/Footer/Footer";
 import AuthProvider from "./components/context/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ContactUs from "./components/ContactUs/ContactUs";
+import MyAllOrders from "./components/MyAllOrders/MyAllOrders";
+import AddServices from "./components/AddServices/AddServices";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-color">
       <AuthProvider>
         <Router>
           <Header></Header>
@@ -26,9 +28,15 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route exact path="/services">
+            <Route path="/services">
               <Services></Services>
             </Route>
+            <PrivateRoute path="/myAllOrders">
+              <MyAllOrders></MyAllOrders>
+            </PrivateRoute>
+            <PrivateRoute path="/addservices">
+              <AddServices></AddServices>
+            </PrivateRoute>
             <Route path="/contactus">
               <ContactUs></ContactUs>
             </Route>
@@ -38,7 +46,7 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivateRoute path="/services/placeOrder/:id">
+            <PrivateRoute path="/placeOrder/:id">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
             <Route path="*">

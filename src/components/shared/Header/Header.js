@@ -8,16 +8,33 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar bg="light" variant="light">
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand href="#home">
-            <h2 className="text-primary">Fantasy Holiday</h2>
+            <h2 className="text-primary fw-bold">~ FANTASY HOLIDAY ~</h2>
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Nav.Link as={Link} to="/home">
               Home
             </Nav.Link>
+            <Nav.Link as={Link} to="/services">
+              Services
+            </Nav.Link>
+            { user.email ?
+              <Nav.Link as={Link} to="/myAllOrders">
+              My Orders
+            </Nav.Link>
+            :
+            <> </>
+            }
+            { user.email ?
+              <Nav.Link as={Link} to="/addservices">
+              Add Services
+            </Nav.Link>
+            :
+            <> </>
+            }
             <Nav.Link as={Link} to="/contactus">
               Contact Us
             </Nav.Link>
@@ -40,7 +57,7 @@ const Header = () => {
 
             {/* user name */}
             <Navbar.Text className="text-dark ms-3">
-              Logged in as: <p>{user?.displayName}</p>
+              Logged in as: <p className="fw-bold">{user?.displayName}</p>
             </Navbar.Text>
           </Navbar.Collapse>
         </Container>
