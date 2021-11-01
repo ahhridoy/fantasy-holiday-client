@@ -8,7 +8,7 @@ const AddServices = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/addServices`, {
+    fetch(`https://morning-taiga-03654.herokuapp.com/addServices`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

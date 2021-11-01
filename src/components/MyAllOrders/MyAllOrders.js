@@ -5,7 +5,7 @@ const MyAllOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://morning-taiga-03654.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
@@ -14,7 +14,7 @@ const MyAllOrders = () => {
   const handleDeleteOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/deleteOrder/${id}`;
+      const url = `https://morning-taiga-03654.herokuapp.com/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -33,7 +33,7 @@ const MyAllOrders = () => {
     <Container>
       <Row>
         {orders.map((order) => (
-          <Col md={4}>
+          <Col key={order.id} md={4}>
             <div className="bg-light p-3 rounded my-5">
               <img src={order.img} className="w-100" />
               <h2>{order.name}</h2>

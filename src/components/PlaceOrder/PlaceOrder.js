@@ -8,7 +8,7 @@ const PlaceOrder = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${id}`)
+    fetch(`https://morning-taiga-03654.herokuapp.com/${id}`)
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
@@ -18,7 +18,7 @@ const PlaceOrder = () => {
     const data = service;
     data.email = user.email;
 
-    fetch("http://localhost:5000/addOrder", {
+    fetch("https://morning-taiga-03654.herokuapp.com/addOrder", {
       method: "POST",
       headers: {
         "content-type": "application/json",
