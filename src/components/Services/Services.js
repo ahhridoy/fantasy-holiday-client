@@ -4,7 +4,6 @@ import Service from "../Service/Service";
 
 const Services = () => {
     const [services, setServices] = useState([]);
-
     useEffect(() => {
         fetch("https://safe-scrubland-89020.herokuapp.com/services")
             .then((res) => res.json())
@@ -13,7 +12,7 @@ const Services = () => {
 
     return (
         <Container>
-            <h2 className="mt-5 text-primary">Our Services</h2>
+            <h2 className="mt-4 text-primary fw-bold">Our Services</h2>
             <Row>
                 {services.map((service) => (
                     <Service key={service.id} service={service}></Service>
